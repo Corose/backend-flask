@@ -13,9 +13,12 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 app.register_blueprint(api, url_prefix="/api")
 
-@app.route("/")
-def home():
-    return {"status": "ok", "service": "backend-flask"}
+@app.route("/users", methods=["GET"])
+def users():
+    return jsonify([
+        {"id": 1, "name": "Juan"},
+        {"id": 2, "name": "Ana"}
+    ])
 
 with app.app_context():
     db.create_all()
