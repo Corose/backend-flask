@@ -3,6 +3,7 @@ from flask import Flask
 from extensions import db
 from routes import routes
 
+
 app = Flask(__name__)
 
 database_url = os.getenv("DATABASE_URL")
